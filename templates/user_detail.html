@@ -1,0 +1,91 @@
+<!-- user_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .user-card {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            padding: 20px;
+            color: #333;
+        }
+        .user-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Make the image circular */
+            margin: auto;
+            display: block;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .user-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .user-card th, .user-card td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .user-card th {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 768px) {
+            .user-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="user-card">
+        <h1 style="text-align: center;">User Detail</h1>
+        {% if user.profile_pic %}
+        <img src="{{ user.profile_pic.url }}" alt="Profile Picture">
+        {% endif %}
+        <table>
+            <tr>
+                <th>Email:</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>First Name:</th>
+                <td>{{ user.first_name }}</td>
+            </tr>
+            <tr>
+                <th>Last Name:</th>
+                <td>{{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <th>User Type:</th>
+                <td>{{ user.user_type }}</td>
+            </tr>
+            <tr>
+                <th>Department:</th>
+                <td>{{ user.department }}</td>
+            </tr>
+            <tr>
+                <th>Job Title:</th>
+                <td>{{ user.job_title }}</td>
+            </tr>
+            <tr>
+                <th>Hire Date:</th>
+                <td>{{ user.hire_date }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

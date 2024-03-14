@@ -1,0 +1,58 @@
+
+from django.urls import path
+from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    path('home/',views.home,name='home'),
+    path('',views.register_user,name='register'),
+    path('login/', views.LoginView.as_view(), name='login'),
+    path('create_performance/', views.create_performance_metric, name='create_performance'),
+    path('create_goal/', views.create_goal, name='create_goal'),
+    path('edit_user/<int:user_id>/', views.edit_user, name='edit_user'),
+    path('performance_metrics/', views.performance_metric_list, name='performance_metric_list'),
+    path('goal_list/', views.goal_list, name='goal_list'),
+    path('assessment_create/',views.create_assessment,name='assessment_create'),
+    path('reward_create/',views.create_reward,name='reward_create'),
+    path('training_create/',views.create_training,name='training_create'),
+    path('team_create/',views.create_team,name='create_team'),
+    path('skill_create/',views.create_skill,name='skill_create'),
+    path('skill_create_employee/',views.create_employee_skill,name='employee_skill_create'),
+    path('index/', views.index, name='index'),
+    path('base/',views.base,name='base'),
+    path('logout/',views.logout_view,name='logout'),
+    path('performance_metrics/<int:employee_id>/', views.performance_metrics, name='performance_metrics'),
+    path('edit_performance_metric/<int:metric_id>/', views.edit_performance_metric, name='edit_performance_metric'),
+    path('performance_metrics/<int:metric_id>/delete/', views.delete_performance_metric, name='delete_performance_metric'),
+    path('team/<int:team_id>/', views.team_detail, name='team_detail'),
+    path('rewards/', views.list_rewards, name='reward_list'),
+    path('trainings/', views.list_trainings, name='training_list'),
+    path('skill_list/', views.skill_list, name='skill_list'),
+    path('delete_skill/<int:skill_id>/', views.delete_skill, name='delete_skill'),
+    path('employee_skill_list/', views.employee_skill_list, name='employee_skill_list'),
+    path('edit_goal/<int:goal_id>/', views.edit_goal, name='edit_goal'),
+    path('delete_goal/<int:goal_id>/', views.delete_goal, name='delete_goal'),
+    path('assessments_list/', views.assessment_list, name='assessment_list'),
+    path('assessment_edit/<int:assessment_id>/', views.edit_assessment, name='assessment_edit'),
+    path('assessment_delete/<int:assessment_id>/',views. delete_assessment, name='assessment_delete'),
+    path('edit_employee_skill<int:pk>/', views.edit_employee_skill, name='edit_employee_skill'),
+    path('employee_skill/<int:pk>/delete/', views.delete_employee_skill, name='delete_employee_skill'),
+    path('reward_edit/<int:reward_id>/', views.edit_reward, name='edit_reward'),
+    path('training_edit/<int:training_id>/', views.edit_training, name='edit_training'),
+    path('delete_training/<int:training_id>/', views.delete_training, name='delete_training'),
+    path('delete_reward/<int:reward_id>/', views.delete_reward, name='delete_reward'),
+    path('skill_edit/<int:skill_id>/', views.edit_skill, name='edit_skill'),
+    path('delete_skill/<int:skill_id>/', views.delete_skill, name='delete_skill'),
+    path('employee_skills_id/<int:employee_id>/', views.employee_skills_by_employee, name='employee_skills_by_employee'),
+    path('goals_detail/<int:goal_id>/', views.goal_detail, name='goal_detail'),
+    path('employee_goals/<int:employee_id>/', views.employee_goals, name='employee_goals'),
+    path('employee_rewards/<int:employee_id>/', views.employee_rewards, name='employee_rewards'),
+    path('employee_training/<int:employee_id>/', views.employee_training, name='employee_training'),
+    path('employee_skill/<int:employee_id>/', views.employee_skill, name='employee_skill'),
+    path('employee_assessment/<int:employee_id>/', views.employee_assessment, name='employee_assessment'),
+    path('edit_employee_goal/<int:employee_id>/<int:goal_id>/', views.edit_employee_goal, name='edit_employee_goal'),
+    path('user_detail/<int:user_id>/', views.user_detail, name='user_detail'),
+
+  
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
